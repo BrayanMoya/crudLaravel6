@@ -14,5 +14,40 @@
 </head>
 <body>
 
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 mx-auto">
+            {{view('users.form')}}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th colspan="2">Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($users as $user)
+                    <tr>
+                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>
+                            <form action="{{ route('users.destroy', $user) }}" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <input type="submit" value="ELIMINAR" class="btn btn-sm btn-danger"
+                                       onclick="return confirm('¿Esta seguro de eliminar el registro?')">
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
 </body>
 </html>

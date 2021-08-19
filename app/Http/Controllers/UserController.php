@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Http\Request;
+use App\Http\Requests\UsersRequest;
 
 class UserController extends Controller
 {
@@ -14,13 +14,8 @@ class UserController extends Controller
         return view('users.index', ['users' => $users]);
     }
 
-    public function store(Request $request)
+    public function store(UsersRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:8',
-        ]);
         User::create([
             'name' => $request->name,
             'email' => $request->email,

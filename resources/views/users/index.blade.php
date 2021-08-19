@@ -17,7 +17,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-8 mx-auto">
-            {{view('users.form')}}
+            @include('users.form')
             <table class="table">
                 <thead>
                 <tr>
@@ -45,7 +45,6 @@
                 </tbody>
             </table>
         </div>
-
     </div>
 </div>
 

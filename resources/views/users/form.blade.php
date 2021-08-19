@@ -1,6 +1,6 @@
 <div class="card border-0 shadow">
     <div class="card-body">
-        {{view('formErrors')}}
+        @include('formErrors')
         <form action="{{ route('users.store') }}" method="post">
             <div class="form-group row">
                 <div class="col-sm-3">
